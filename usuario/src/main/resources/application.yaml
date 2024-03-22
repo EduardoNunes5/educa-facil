@@ -1,5 +1,0 @@
-spring:
-  application:
-    name:usuario
-  profiles:
-    active: ${APP_PROFILE:dev}

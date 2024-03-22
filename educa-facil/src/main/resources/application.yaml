@@ -1,0 +1,5 @@
+spring:
+  application:
+    name:educa-facil
+  profiles:
+    active: ${APP_PROFILE:dev}
