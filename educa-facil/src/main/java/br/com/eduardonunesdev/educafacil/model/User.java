@@ -19,13 +19,14 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nome;
 
     private String username;
 
-    private String password;
+    private String senha;
 
     private String email;
 

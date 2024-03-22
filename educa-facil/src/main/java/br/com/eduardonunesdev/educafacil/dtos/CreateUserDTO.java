@@ -7,12 +7,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record CreateUserDTO(
-        String name,
+        String nome,
         @NotBlank
         @Size(max = 20)
         @UsernameValid(message = "O usuário deve conter apenas letras minúsculas, não possuir espaços em branco e não possuir números")
         String username,
-        String password,
+        String senha,
         @Email String email,
         UserRole role
 
