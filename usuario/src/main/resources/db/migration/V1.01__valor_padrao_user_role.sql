@@ -1,1 +1,0 @@
-ALTER TABLE tb_user ALTER user_role SET DEFAULT 'ESTUDANTE';
