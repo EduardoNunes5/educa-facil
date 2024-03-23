@@ -7,8 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Stream;
 
 @Getter
 @Setter
@@ -16,7 +22,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,14 +43,33 @@ public class User {
     @Column(name = "user_role")
     private UserRole role;
 
-}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Stream.of(role).map(role -> new SimpleGrantedAuthority(role.name())).toList();
+    }
 
-/*
-*     id SERIAL primary key,
-    name VARCHAR(100),
-    username VARCHAR(20),
-    email VARCHAR(100),
-    password VARCHAR(20),
-    created_at timestamp default current_timestamp,
-    user_role enum ('ESTUDANTE', 'INSTRUTOR', 'ADMIN')
-* */
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}

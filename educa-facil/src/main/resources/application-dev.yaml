@@ -13,3 +13,6 @@ spring:
   flyway:
     loggers: slf4j
     enabled: ${USE_FLYWAY:false}
+
+jwt:
+  secret: ${JWT_SECRET:segredo}

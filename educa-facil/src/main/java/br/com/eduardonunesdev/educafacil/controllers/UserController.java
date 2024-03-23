@@ -2,6 +2,7 @@ package br.com.eduardonunesdev.educafacil.controllers;
 
 import br.com.eduardonunesdev.educafacil.dtos.CreateUserDTO;
 import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
+import br.com.eduardonunesdev.educafacil.dtos.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,10 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public CreateUserResponseDTO createUser(@RequestBody @Valid CreateUserDTO dto){
         return userService.createUser(dto);
+    }
+
+    @GetMapping("/{username}")
+    public UserInformationDTO getUserInformation(@PathVariable String username){
+        return userService.getUserInformation(username);
     }
 }
