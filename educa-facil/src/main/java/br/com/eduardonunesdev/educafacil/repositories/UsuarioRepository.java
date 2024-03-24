@@ -11,8 +11,6 @@ import java.util.Optional;
 public interface UsuarioRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByUsername(String username);
-    UserInformationDTO findByEmail(String email);
-
     @Query(
             value = """
         select new br.com.eduardonunesdev.educafacil.dtos.validation.EmailUsernameCountDTO(
