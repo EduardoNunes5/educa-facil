@@ -4,7 +4,7 @@ CREATE TABLE tb_user(
     username VARCHAR(20) UNIQUE,
     email VARCHAR(100) UNIQUE ,
     senha VARCHAR(100),
-    created_at timestamp default current_timestamp,
+    created_at timestamp default current_timestamp not null,
     user_role enum ('ESTUDANTE', 'INSTRUTOR', 'ADMIN') DEFAULT 'ESTUDANTE',
     CONSTRAINT check_lower_case_username CHECK (username = LOWER(username)),
     CONSTRAINT check_no_space_username CHECK (username NOT LIKE '% %'),
