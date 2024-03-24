@@ -5,10 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -25,7 +23,7 @@ public class Course {
     private String nome;
 
     @ManyToOne
-    @Column(name = "instrutor_id")
+    @JoinColumn(name = "instrutor_id")
     private User user;
 
     @Column(length = 200)
