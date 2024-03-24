@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -37,8 +38,7 @@ public class User implements UserDetails {
 
     private String email;
 
-    @Column(columnDefinition = "timestamp")
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -46,7 +46,7 @@ public class User implements UserDetails {
 
     @PrePersist
     public void prePersist(){
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDate.now();
     }
 
     @Override
