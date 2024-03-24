@@ -1,4 +1,4 @@
-CREATE TABLE tb_curso(
+CREATE TABLE tb_course(
     codigo          VARCHAR(10) PRIMARY KEY,
     nome            VARCHAR(100),
     instrutor_id    BIGINT,
