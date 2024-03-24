@@ -9,10 +9,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = UsernameValidator.class)
+@Constraint(validatedBy = PatternValidator.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UsernameValid {
+public @interface ValidPattern {
+
+    String pattern() default "";
 
     String message() default "Username inválido";
     Class<?>[] groups() default {};
