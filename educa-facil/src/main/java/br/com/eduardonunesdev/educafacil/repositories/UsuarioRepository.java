@@ -1,6 +1,5 @@
 package br.com.eduardonunesdev.educafacil.repositories;
 
-import br.com.eduardonunesdev.educafacil.dtos.user.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.model.User;
 import br.com.eduardonunesdev.educafacil.dtos.validation.EmailUsernameCountDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
