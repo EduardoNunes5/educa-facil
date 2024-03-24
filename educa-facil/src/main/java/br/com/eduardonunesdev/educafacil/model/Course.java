@@ -29,9 +29,14 @@ public class Course {
     @Column(length = 200)
     private String descricao;
 
-    private boolean status;
+    private boolean status = true;
 
     private LocalDate createdAt;
 
     private LocalDate dataInativacao;
+
+    @PrePersist
+    public void prePersist(){
+        this.createdAt = LocalDate.now();
+    }
 }
