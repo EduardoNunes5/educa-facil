@@ -2,8 +2,6 @@ package br.com.eduardonunesdev.educafacil.services.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Value;
 
 public class PatternValidator implements ConstraintValidator<ValidPattern, String> {
 

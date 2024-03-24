@@ -1,6 +1,7 @@
 package br.com.eduardonunesdev.educafacil.config.security;
 
-import br.com.eduardonunesdev.educafacil.exceptions.CustomErrorResponse;
+import br.com.eduardonunesdev.educafacil.controllers.exceptions.CustomErrorMessage;
+import br.com.eduardonunesdev.educafacil.controllers.exceptions.CustomErrorResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,13 +26,12 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setContentType("application/json");
 
-        CustomErrorResponse customErrorResponse = new CustomErrorResponse(
+        CustomErrorMessage customErrorMessage = new CustomErrorMessage(
                 "Usuário não autenticado",
-                HttpStatus.UNAUTHORIZED.value(),
-                Collections.emptyList()
+                HttpStatus.UNAUTHORIZED.value()
         );
 
-        mapper.writeValue(response.getOutputStream(), customErrorResponse);
+        mapper.writeValue(response.getOutputStream(), customErrorMessage);
     }
 
 }

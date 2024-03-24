@@ -1,16 +1,21 @@
-package br.com.eduardonunesdev.educafacil.exceptions;
+package br.com.eduardonunesdev.educafacil.controllers.exceptions;
 
+import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestControllerAdvice
@@ -25,6 +30,12 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
         CustomErrorResponse customErrorResponse = new CustomErrorResponse("Erro de validação", status.value(), errors);
         return ResponseEntity.status(status).body(customErrorResponse);
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public CustomErrorMessage handleResourceNotFound(ResourceNotFoundException ex){
+        return new CustomErrorMessage(ex.getMessage(), HttpStatus.NOT_FOUND.value());
     }
 
     private List<CustomErrorDetail> getFieldErrors(List<FieldError> fieldErrors){
