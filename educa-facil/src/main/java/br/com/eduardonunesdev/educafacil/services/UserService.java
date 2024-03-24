@@ -1,11 +1,11 @@
 package br.com.eduardonunesdev.educafacil.services;
 
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserDTO;
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
-import br.com.eduardonunesdev.educafacil.dtos.UserInformationDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserResponseDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.mappers.UserMapper;
 import br.com.eduardonunesdev.educafacil.model.User;
-import br.com.eduardonunesdev.educafacil.dtos.EmailUsernameCountDTO;
+import br.com.eduardonunesdev.educafacil.dtos.validation.EmailUsernameCountDTO;
 import br.com.eduardonunesdev.educafacil.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
