@@ -3,10 +3,12 @@ package br.com.eduardonunesdev.educafacil.services;
 import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
 import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserResponseDTO;
 import br.com.eduardonunesdev.educafacil.dtos.user.UserInformationDTO;
+import br.com.eduardonunesdev.educafacil.enums.UserRole;
 import br.com.eduardonunesdev.educafacil.mappers.UserMapper;
 import br.com.eduardonunesdev.educafacil.model.User;
 import br.com.eduardonunesdev.educafacil.dtos.validation.EmailUsernameCountDTO;
 import br.com.eduardonunesdev.educafacil.repositories.UsuarioRepository;
+import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -41,14 +43,19 @@ public class UserService implements UserDetailsService {
         return usuarioRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Usuário com o username " + username + " não encontrado"));
     }
 
-    public UserInformationDTO getUserInformation(String email) {
-        return usuarioRepository.findByUsername(email)
+    public UserInformationDTO getUserInformation(String username) {
+        return usuarioRepository.findByUsername(username)
                 .map(user -> new UserInformationDTO(user.getNome(), user.getEmail(), user.getRole()))
-                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
     }
 
     public EmailUsernameCountDTO countEmailAndUsername(CreateUserDTO dto) {
         return usuarioRepository.countUsernameAndEmail(dto.username(), dto.email());
+    }
+
+    public User getUserByIdAndRole(Long id, UserRole role){
+        return usuarioRepository.findByIdAndRoleIs(id, role)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado ou não é instrutor."));
     }
 
 }
