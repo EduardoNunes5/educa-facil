@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.dtos;
+package br.com.eduardonunesdev.educafacil.dtos.validation;
 
 public record EmailUsernameCountDTO(
         long usernameCount,

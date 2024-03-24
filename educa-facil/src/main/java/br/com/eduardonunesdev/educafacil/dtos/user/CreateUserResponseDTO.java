@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.dtos;
+package br.com.eduardonunesdev.educafacil.dtos.user;
 
 import br.com.eduardonunesdev.educafacil.enums.UserRole;
 public record CreateUserResponseDTO(
