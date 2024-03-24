@@ -4,8 +4,8 @@ CREATE TABLE tb_curso(
     instrutor_id    BIGINT,
     descricao       VARCHAR(200),
     status          boolean,
-    created_at      date default current_date not null,
+    created_at      DATE NOT NULL DEFAULT (curdate()),
     data_inativacao date,
-    CONSTRAINT check_no_space_codigo CHECK (username NOT LIKE '% %'),
-    CONSTRAINT check_codigo_valido CHECK (username REGEXP '^[a-zA-Z-]*$')
+    CONSTRAINT check_no_space_codigo CHECK (codigo NOT LIKE '% %'),
+    CONSTRAINT check_codigo_valido CHECK (codigo REGEXP '^[a-zA-Z-]*$')
 );
