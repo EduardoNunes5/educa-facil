@@ -1,8 +1,8 @@
 package br.com.eduardonunesdev.educafacil.controllers;
 
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserDTO;
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
-import br.com.eduardonunesdev.educafacil.dtos.UserInformationDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserResponseDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
