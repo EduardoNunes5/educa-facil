@@ -1,7 +1,6 @@
 package br.com.eduardonunesdev.educafacil.exceptions;
 
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -23,7 +22,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                 )
                 .toList();
 
-        CustomErrorResonse customErrorResonse = new CustomErrorResonse("Erro de validação", status.value(), errors);
-        return ResponseEntity.status(status).body(customErrorResonse);
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse("Erro de validação", status.value(), errors);
+        return ResponseEntity.status(status).body(customErrorResponse);
     }
 }
