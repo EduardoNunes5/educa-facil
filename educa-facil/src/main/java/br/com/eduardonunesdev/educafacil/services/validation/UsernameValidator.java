@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.validation.username;
+package br.com.eduardonunesdev.educafacil.services.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -9,7 +9,7 @@ Precisa ser um endereço de e-mail em um formato válido.
 Pode apenas ter um usuário com o mesmo email/username.
 
 */
-public class UsernameValidator implements ConstraintValidator<br.com.eduardonunesdev.educafacil.validation.username.UsernameValid, String> {
+public class UsernameValidator implements ConstraintValidator<UsernameValid, String> {
     @Override
     public boolean isValid(String username, ConstraintValidatorContext constraintValidatorContext) {
         return username.matches("[^A-Z0-9\\s]*$");

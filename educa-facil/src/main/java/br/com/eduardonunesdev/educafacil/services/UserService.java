@@ -5,8 +5,10 @@ import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
 import br.com.eduardonunesdev.educafacil.dtos.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.mappers.UserMapper;
 import br.com.eduardonunesdev.educafacil.model.User;
+import br.com.eduardonunesdev.educafacil.projections.EmailUsernameCountProjection;
 import br.com.eduardonunesdev.educafacil.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,14 +26,15 @@ public class UserService implements UserDetailsService {
     private final PasswordEncoder passwordEncoder;
     private final UserMapper mapper = UserMapper.INSTANCE;
 
-    public CreateUserResponseDTO createUser(CreateUserDTO dto){
+    public CreateUserResponseDTO createUser(CreateUserDTO dto) {
         User user = mapper.convertToEntity(dto);
         encryptPassword(user);
         usuarioRepository.save(user);
         return mapper.convertToResponse(usuarioRepository.save(user));
+
     }
 
-    private void encryptPassword(User user){
+    private void encryptPassword(User user) {
         user.setSenha(passwordEncoder.encode(user.getSenha()));
     }
 
@@ -43,7 +46,12 @@ public class UserService implements UserDetailsService {
 
     public UserInformationDTO getUserInformation(String email) {
         return usuarioRepository.findByUsername(email)
-                .map(user -> new UserInformationDTO(user.getNome(),user.getEmail(),user.getRole()))
+                .map(user -> new UserInformationDTO(user.getNome(), user.getEmail(), user.getRole()))
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
     }
+
+    public EmailUsernameCountProjection countEmailAndUsername(CreateUserDTO dto) {
+        return usuarioRepository.countUsernameAndEmail(dto.username(), dto.email());
+    }
+
 }

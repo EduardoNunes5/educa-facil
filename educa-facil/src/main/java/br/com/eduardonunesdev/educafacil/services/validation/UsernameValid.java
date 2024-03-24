@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.validation.username;
+package br.com.eduardonunesdev.educafacil.services.validation;
 
 
 import jakarta.validation.Constraint;
