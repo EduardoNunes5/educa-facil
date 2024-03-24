@@ -1,7 +1,7 @@
 package br.com.eduardonunesdev.educafacil.services;
 
-import br.com.eduardonunesdev.educafacil.dtos.LoginRequestDTO;
-import br.com.eduardonunesdev.educafacil.dtos.LoginResponseDTO;
+import br.com.eduardonunesdev.educafacil.dtos.authentication.LoginRequestDTO;
+import br.com.eduardonunesdev.educafacil.dtos.authentication.LoginResponseDTO;
 import br.com.eduardonunesdev.educafacil.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
