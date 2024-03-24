@@ -1,6 +1,6 @@
 package br.com.eduardonunesdev.educafacil.services.validation;
 
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
 import br.com.eduardonunesdev.educafacil.services.UserService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

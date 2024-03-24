@@ -1,7 +1,7 @@
 package br.com.eduardonunesdev.educafacil.mappers;
 
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserDTO;
-import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
+import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserResponseDTO;
 import br.com.eduardonunesdev.educafacil.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
