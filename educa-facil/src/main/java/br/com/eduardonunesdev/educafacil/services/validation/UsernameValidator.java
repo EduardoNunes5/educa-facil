@@ -12,6 +12,6 @@ Pode apenas ter um usuário com o mesmo email/username.
 public class UsernameValidator implements ConstraintValidator<UsernameValid, String> {
     @Override
     public boolean isValid(String username, ConstraintValidatorContext constraintValidatorContext) {
-        return username.matches("[^A-Z0-9\\s]*$");
+        return username.matches("^[a-z]*$");
     }
 }

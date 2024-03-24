@@ -5,18 +5,15 @@ import br.com.eduardonunesdev.educafacil.dtos.CreateUserResponseDTO;
 import br.com.eduardonunesdev.educafacil.dtos.UserInformationDTO;
 import br.com.eduardonunesdev.educafacil.mappers.UserMapper;
 import br.com.eduardonunesdev.educafacil.model.User;
-import br.com.eduardonunesdev.educafacil.projections.EmailUsernameCountProjection;
+import br.com.eduardonunesdev.educafacil.dtos.EmailUsernameCountDTO;
 import br.com.eduardonunesdev.educafacil.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -50,7 +47,7 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
     }
 
-    public EmailUsernameCountProjection countEmailAndUsername(CreateUserDTO dto) {
+    public EmailUsernameCountDTO countEmailAndUsername(CreateUserDTO dto) {
         return usuarioRepository.countUsernameAndEmail(dto.username(), dto.email());
     }
 
