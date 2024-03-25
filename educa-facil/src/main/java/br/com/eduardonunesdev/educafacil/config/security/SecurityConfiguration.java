@@ -37,11 +37,11 @@ public class SecurityConfiguration {
                                 "/auth/**",
                                 "/usuarios",
                         }).permitAll()
-                        .requestMatchers(HttpMethod.GET, new String[]{
-                                "/usuarios/{username}"
+                        .requestMatchers(new String[]{
+                                "/usuarios/{username}",
+                                "/cursos/**"
                         }).hasAuthority("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/cursos")
-                        .hasAuthority("ADMIN"))
+                        .anyRequest().authenticated())
                 .exceptionHandling(customize -> customize
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                         .accessDeniedHandler(customAccessDenied)
