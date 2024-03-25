@@ -1,6 +1,7 @@
 package br.com.eduardonunesdev.educafacil.dtos.course;
 
 import br.com.eduardonunesdev.educafacil.constants.RegexConstants;
+import br.com.eduardonunesdev.educafacil.services.validation.UniqueCourse;
 import br.com.eduardonunesdev.educafacil.services.validation.ValidPattern;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -12,6 +13,7 @@ public record CreateCourseDTO(
                 pattern = RegexConstants.VALID_COURSE_CODE,
                 message = "Código deve possuir apenas caracteres minúsculos e ser separado por hífen."
         )
+        @UniqueCourse
         String codigo,
         String nome,
 

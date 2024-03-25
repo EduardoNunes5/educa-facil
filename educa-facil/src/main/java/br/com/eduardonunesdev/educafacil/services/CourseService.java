@@ -26,4 +26,8 @@ public class CourseService {
         return mapper.convertToCourseResponse(course, user);
     }
 
+    public boolean existsByCodigo(String codigo){
+        return repository.existsById(codigo);
+    }
+
 }
