@@ -15,7 +15,6 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @RestControllerAdvice
@@ -28,8 +27,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         errors.addAll(getGlobalErrors(ex.getGlobalErrors()));
 
 
-        CustomErrorResponse customErrorResponse = new CustomErrorResponse("Erro de validação", status.value(), errors);
-        return ResponseEntity.status(status).body(customErrorResponse);
+        ExpandedErrorResponse expandedErrorResponse = new ExpandedErrorResponse("Erro de validação", status.value(), errors);
+        return ResponseEntity.status(status).body(expandedErrorResponse);
     }
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
