@@ -30,4 +30,7 @@ public class CourseService {
         return repository.existsById(codigo);
     }
 
+    public void deactivateCourse(String codigo) {
+        repository.deactivateCourse(codigo);
+    }
 }

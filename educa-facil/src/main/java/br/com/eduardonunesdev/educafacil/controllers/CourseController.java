@@ -20,4 +20,10 @@ public class CourseController {
     public CreateCourseResponseDTO createCourse(@RequestBody @Valid CreateCourseDTO dto){
         return service.createCourse(dto);
     }
+
+    @PatchMapping("/{codigo}/status")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deactivateCourse(@PathVariable String codigo){
+        service.deactivateCourse(codigo);
+    }
 }
