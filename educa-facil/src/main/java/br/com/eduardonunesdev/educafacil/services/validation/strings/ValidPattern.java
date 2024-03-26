@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.services.validation;
+package br.com.eduardonunesdev.educafacil.services.validation.strings;
 
 
 import jakarta.validation.Constraint;
