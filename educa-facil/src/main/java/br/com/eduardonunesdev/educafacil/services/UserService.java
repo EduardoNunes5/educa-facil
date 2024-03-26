@@ -58,4 +58,8 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado ou não é instrutor."));
     }
 
+    public User getUserReferenceById(Long id){
+        return usuarioRepository.getReferenceById(id);
+    }
+
 }
