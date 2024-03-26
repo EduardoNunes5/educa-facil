@@ -40,4 +40,8 @@ public class CourseService {
         return repository.findByStatus(pageable, status)
                 .map(mapper::convertToCourseResponse);
     }
+
+    public Course getCourseReferenceByCode(String codigo){
+        return repository.getReferenceById(codigo);
+    }
 }
