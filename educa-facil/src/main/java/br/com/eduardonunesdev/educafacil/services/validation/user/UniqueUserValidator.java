@@ -1,4 +1,4 @@
-package br.com.eduardonunesdev.educafacil.services.validation;
+package br.com.eduardonunesdev.educafacil.services.validation.user;
 
 import br.com.eduardonunesdev.educafacil.dtos.user.CreateUserDTO;
 import br.com.eduardonunesdev.educafacil.services.UserService;
