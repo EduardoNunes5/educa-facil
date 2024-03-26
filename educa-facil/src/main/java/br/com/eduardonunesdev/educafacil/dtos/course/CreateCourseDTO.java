@@ -1,8 +1,8 @@
 package br.com.eduardonunesdev.educafacil.dtos.course;
 
 import br.com.eduardonunesdev.educafacil.constants.RegexConstants;
-import br.com.eduardonunesdev.educafacil.services.validation.UniqueCourse;
-import br.com.eduardonunesdev.educafacil.services.validation.ValidPattern;
+import br.com.eduardonunesdev.educafacil.services.validation.course.UniqueCourse;
+import br.com.eduardonunesdev.educafacil.services.validation.strings.ValidPattern;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
