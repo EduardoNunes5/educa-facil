@@ -1,5 +1,6 @@
 package br.com.eduardonunesdev.educafacil.controllers.exceptions;
 
+import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceExistsException;
 import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,20 +34,26 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ResourceNotFoundException.class)
-    public CustomErrorMessage handleResourceNotFound(ResourceNotFoundException ex){
+    public CustomErrorMessage handleResourceNotFound(ResourceNotFoundException ex) {
         return new CustomErrorMessage(ex.getMessage(), HttpStatus.NOT_FOUND.value());
     }
 
-    private List<CustomErrorDetail> getFieldErrors(List<FieldError> fieldErrors){
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ResourceExistsException.class)
+    public CustomErrorMessage handleResourceExists(ResourceExistsException ex) {
+        return new CustomErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value());
+    }
+
+    private List<CustomErrorDetail> getFieldErrors(List<FieldError> fieldErrors) {
         return fieldErrors
                 .stream().map(fieldError -> new CustomErrorDetail(
-                        fieldError.getField().toUpperCase(),
+                        fieldError.getField(),
                         fieldError.getDefaultMessage())
                 )
                 .toList();
     }
 
-    private List<CustomErrorDetail> getGlobalErrors(List<ObjectError> globalErrors){
+    private List<CustomErrorDetail> getGlobalErrors(List<ObjectError> globalErrors) {
         return globalErrors
                 .stream().map(ge -> new CustomErrorDetail(
                         ge.getObjectName(),
