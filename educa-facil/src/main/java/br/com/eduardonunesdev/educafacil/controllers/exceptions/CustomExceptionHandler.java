@@ -1,5 +1,6 @@
 package br.com.eduardonunesdev.educafacil.controllers.exceptions;
 
+import br.com.eduardonunesdev.educafacil.services.exceptions.BadRequestException;
 import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceExistsException;
 import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
@@ -39,8 +40,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ResourceExistsException.class)
-    public CustomErrorMessage handleResourceExists(ResourceExistsException ex) {
+    @ExceptionHandler({ResourceExistsException.class, BadRequestException.class})
+    public CustomErrorMessage handleResourceExists(RuntimeException ex) {
         return new CustomErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value());
     }
 
