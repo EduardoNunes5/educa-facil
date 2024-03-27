@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 public interface CursoRepository extends JpaRepository<Course, String> {
 
     @Transactional
@@ -16,4 +18,6 @@ public interface CursoRepository extends JpaRepository<Course, String> {
     void deactivateCourse(String codigo);
 
     Page<Course> findByStatus(Pageable pageable, Boolean status);
+
+    Optional<Course> findByCodigoAndStatusTrue(String codigo);
 }
