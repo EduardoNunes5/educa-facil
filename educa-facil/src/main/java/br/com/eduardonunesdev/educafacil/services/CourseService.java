@@ -7,6 +7,7 @@ import br.com.eduardonunesdev.educafacil.mappers.CourseMapper;
 import br.com.eduardonunesdev.educafacil.model.Course;
 import br.com.eduardonunesdev.educafacil.model.User;
 import br.com.eduardonunesdev.educafacil.repositories.CursoRepository;
+import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,7 +42,10 @@ public class CourseService {
                 .map(mapper::convertToCourseResponse);
     }
 
-    public Course getCourseReferenceByCode(String codigo){
-        return repository.getReferenceById(codigo);
+
+    public Course getCourseIfActive(String codigo){
+        return repository.findByCodigoAndStatusTrue(codigo)
+                .orElseThrow(() -> new ResourceNotFoundException("Curso não encontrado ou inativo."));
     }
+
 }
