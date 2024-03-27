@@ -1,8 +1,6 @@
 package br.com.eduardonunesdev.educafacil.model.key;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
 import lombok.*;
 
 import java.io.Serializable;

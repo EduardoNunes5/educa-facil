@@ -19,7 +19,6 @@ public class EnrollmentInsertValidator implements ConstraintValidator<Enrollment
     @Override
     public boolean isValid(UserEnrollmentDTO value, ConstraintValidatorContext context) {
 
-        boolean isValid;
         var currentUserId = authenticatedUserService.getLoggedInUser().getId();
 
         var sameId = currentUserId.equals(value.usuarioId());

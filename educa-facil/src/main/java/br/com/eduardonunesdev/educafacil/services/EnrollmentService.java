@@ -8,7 +8,6 @@ import br.com.eduardonunesdev.educafacil.model.Enrollment;
 import br.com.eduardonunesdev.educafacil.model.User;
 import br.com.eduardonunesdev.educafacil.model.key.EnrollmentPK;
 import br.com.eduardonunesdev.educafacil.repositories.MatriculaRepository;
-import br.com.eduardonunesdev.educafacil.services.exceptions.BadRequestException;
 import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceExistsException;
 import br.com.eduardonunesdev.educafacil.services.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -48,10 +47,6 @@ public class EnrollmentService {
 
     public boolean existsById(Long userId, String courseCode) {
         return repository.existsById(new EnrollmentPK(userId, courseCode));
-    }
-
-    private void doEnroll(Enrollment enrollment, User user, Course course){
-
     }
 
 }
