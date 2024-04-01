@@ -1,7 +1,6 @@
-# API Rest para gerenciamento de Alunos e Cursos
+# API Rest para gerenciamento de alunos e cursos
 
-Nesse sistema, é possível gerenciar usuários, cursos e matricular alunos em cursos.  
-Os usuários podem ter um papel (estudante, instrutor ou administrador), cada papel tem níveis de autorização para cada funcionalidade do sistema.
+Nesse sistema, é possível gerenciar usuários, cursos e matricular alunos em cursos. Os usuários podem ter um papel (estudante, instrutor ou administrador), cada papel tem níveis de autorização para cada funcionalidade do sistema.
 ---
 
 ## Funcionalidades e permissões
