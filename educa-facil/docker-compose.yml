@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  backend:
+    container_name: educa-facil-backend
+    image: eduardonunes5/educa-facil
+    environment:
+      APP_PROFILE: dev
+      DATABASE_USER: mysql
+      DATABASE_PASSWORD: password
+      DATABASE_URL: jdbc:mysql://db:3306/educa-facil
+      DDL_AUTO: none
+      USE_FLYWAY: true
+    depends_on:
+      - db
+    ports:
+      - 8090:8080
+
+  db:
+    container_name: mysql-educa-facil
+    image: mysql:8.0
+    ports:
+      - 3309:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=educa-facil
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
