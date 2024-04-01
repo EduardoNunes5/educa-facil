@@ -2,4 +2,4 @@ spring:
   application:
     name:educa-facil
   profiles:
-    active: ${APP_PROFILE:test}
+    active: ${APP_PROFILE:dev}
