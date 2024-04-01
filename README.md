@@ -32,6 +32,7 @@ Um usuário não pode matricular-se mais de uma vez em um curso.
 Podemos apenas nos matricular em cursos ativos.
 
 ---
+## Execução  
 
 A execução do projeto pode ser realizada via docker, com o comando:
 ```shell
@@ -45,7 +46,9 @@ DATABASE_USER
 DATABASE_PASSWORD
 JWT_SECRET
 ```
-Caso contrário, pode definir a variável de ambiente `APP_PROFILE=test`, assim será utilizado o banco de dados h2 e o flyway será desabilitado. 
+Caso contrário, pode definir a variável de ambiente `APP_PROFILE=test`, assim será utilizado o banco de dados h2 e o flyway será desabilitado.  
+
+Por padrão, a porta do servidor será 8090, a do banco de dados (MySQL), 3309 
 
 ---  
 Tecnologias Utilizadas:
