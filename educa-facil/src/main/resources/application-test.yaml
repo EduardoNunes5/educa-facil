@@ -1,17 +1,21 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: true
         show_sql: true
   datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USER}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:h2:mem:educa-facil
+    username: sa
+    password: ~
   flyway:
     loggers: slf4j
-
+    enabled: false
+  h2:
+    console:
+      path: /h2
+      enabled: true
 jwt:
   secret: ${JWT_SECRET:segredo}
