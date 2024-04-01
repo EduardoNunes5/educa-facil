@@ -1,7 +1,7 @@
 # API Rest para gerenciamento de Alunos e Cursos
 
 Nesse sistema, é possível gerenciar usuários, cursos e matricular alunos em cursos.  
-Os usuários podem ter um papel (estudante, instrutor e administrador), cada papel tem níveis de autorização para cada funcionalidade do sistema.
+Os usuários podem ter um papel (estudante, instrutor ou administrador), cada papel tem níveis de autorização para cada funcionalidade do sistema.
 ---
 
 ## Funcionalidades e permissões
@@ -45,5 +45,15 @@ DATABASE_USER
 DATABASE_PASSWORD
 JWT_SECRET
 ```
-Caso contrário, pode definir a variável de ambiente `APP_PROFILE=test`, assim será utilizado o banco de dados h2 e o flyway será desabilitado.
+Caso contrário, pode definir a variável de ambiente `APP_PROFILE=test`, assim será utilizado o banco de dados h2 e o flyway será desabilitado. 
 
+---  
+Tecnologias Utilizadas:
+* Java
+* Spring Boot (Web, Data JPA, Security, Validation)
+* Flyway
+* Lombok
+* Mapstruct
+* MySQL
+* Docker
+* JWT

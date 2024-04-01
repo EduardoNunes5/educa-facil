@@ -60,4 +60,12 @@ public class SecurityConfiguration {
         return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher("/h2/**"));
     }
 
+    @Bean
+    public WebSecurityCustomizer docs(){
+        return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher[]{
+                new AntPathRequestMatcher("/api-docs/**"),
+                new AntPathRequestMatcher("/swagger-ui/**")
+        });
+    }
+
 }
