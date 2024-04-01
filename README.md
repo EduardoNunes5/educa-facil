@@ -48,15 +48,24 @@ JWT_SECRET
 ```
 Caso contrário, pode definir a variável de ambiente `APP_PROFILE=test`, assim será utilizado o banco de dados h2 e o flyway será desabilitado.  
 
-Por padrão, a porta do servidor será 8090, a do banco de dados (MySQL), 3309 
+Por padrão, a porta do servidor será 8090, a do banco de dados (MySQL), 3309.
 
 ---  
 Tecnologias Utilizadas:
 * Java
 * Spring Boot (Web, Data JPA, Security, Validation)
+* OpenAPI 3.0
 * Flyway
 * Lombok
 * Mapstruct
 * MySQL
 * Docker
-* JWT
+* JWT  
+
+--- 
+## Documentação
+
+A documentação da aplicação poderá ser encontrada em: 
+```bash
+localhost:{porta}/swagger-ui/index.html
+```
